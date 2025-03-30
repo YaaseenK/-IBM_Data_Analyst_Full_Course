@@ -1,41 +1,63 @@
-# 🔢 Chi-Square Test for Categorical Variables
+# 📊 Chi-Square Test for Categorical Variables
 
-## 📘 Introduction
-The **chi-square test** is a non-parametric statistical test used to determine if there is a significant **association between two categorical variables**. Commonly used in:
-- Marketing (e.g., gender vs. brand preference)
+## 🔍 Introduction
+The **Chi-Square Test** is a statistical method used to determine if there is a **significant association** between two **categorical variables**. It is widely applied in:
 - Social sciences
 - Healthcare
+- Marketing
 - Education
-- Quality control
+- Manufacturing
+
+---
+
+## 📘 Concept
+The test checks whether **observed frequencies** significantly differ from **expected frequencies** under the assumption of independence.
 
 ---
 
 ## 🧪 Hypotheses
 
-- **Null Hypothesis (H₀):** No association between variables (independent)
-- **Alternative Hypothesis (H₁):** Significant association exists
+- **Null Hypothesis (H₀):** No association between variables (they are independent).
+- **Alternative Hypothesis (H₁):** Significant association between the variables.
 
 ---
 
-## 🧮 Formula
+## 🧮 Chi-Square Formula
 
 \[
 \chi^2 = \sum rac{(O_i - E_i)^2}{E_i}
 \]
 
-- \( O_i \): Observed frequency
-- \( E_i \): Expected frequency
-- \( E_i = rac{	ext{Row Total} 	imes 	ext{Column Total}}{	ext{Grand Total}} \)
+Where:
+- \( O_i \) = Observed frequency
+- \( E_i \) = Expected frequency
 
 \[
-df = (r - 1) 	imes (c - 1)
+E_i = rac{(	ext{row total}) 	imes (	ext{column total})}{	ext{grand total}}
 \]
 
-Where `r` = number of rows, `c` = number of columns
+Degrees of freedom:
+
+\[
+df = (r - 1)(c - 1)
+\]
 
 ---
 
-## ✅ Example 1: Weak Association
+## 📋 Applications
+
+- **Market Research:** Demographics vs. product preference
+- **Healthcare:** Lifestyle vs. disease outcome
+- **Education:** Teaching method vs. student performance
+- **Quality Control:** Process condition vs. defect rate
+
+---
+
+## 🧑‍🔬 Example 1: Weak Association
+
+**Research Question:** Is there an association between **gender** and **product preference**?
+
+### 🔢 Data
 
 | Gender | Like | Dislike | Total |
 |--------|------|---------|-------|
@@ -43,40 +65,69 @@ Where `r` = number of rows, `c` = number of columns
 | Female | 25   | 25      | 50    |
 | **Total** | 45 | 55      | 100   |
 
-### 📊 Step-by-step:
-- Expected frequencies all = 22.5 / 27.5
-- \[
-\chi^2 = 1.008,\ df = 1,\ 	ext{critical value} = 3.841
+### 📊 Expected Frequencies
+
+- Male-Like: (50×45)/100 = 22.5
+- Male-Dislike: (50×55)/100 = 27.5
+- Female-Like: (50×45)/100 = 22.5
+- Female-Dislike: (50×55)/100 = 27.5
+
+### 🧮 Chi-Square Calculation
+
+\[
+\chi^2 = rac{(20 - 22.5)^2}{22.5} + rac{(30 - 27.5)^2}{27.5} + rac{(25 - 22.5)^2}{22.5} + rac{(25 - 27.5)^2}{27.5} = 1.008
 \]
 
-### 💡 Interpretation:
-Since **1.008 < 3.841**, fail to reject H₀ → no significant association.
+### 🎯 Interpretation
+
+- df = 1  
+- Critical value @ 0.05 significance = 3.841  
+- **Conclusion:** 1.008 < 3.841 → Fail to reject H₀ → **No significant association**
 
 ---
 
-## ✅ Example 2: Strong Association
+## 🧪 Example 2: Strong Association
 
-| Status      | Disease | No Disease | Total |
-|-------------|---------|------------|-------|
-| Smoker      | 50      | 30         | 80    |
-| Non-Smoker  | 20      | 100        | 120   |
-| **Total**   | 70      | 130        | 200   |
+**Research Question:** Is there a link between **smoking status** and **lung disease**?
 
-### 📊 Step-by-step:
-- Expected frequencies: 28, 52, 42, 78
-- \[
-\chi^2 = 44.33,\ df = 1,\ 	ext{critical value} = 3.841
+### 🔢 Data
+
+| Smoking Status | Disease | No Disease | Total |
+|----------------|---------|------------|-------|
+| Smoker         | 50      | 30         | 80    |
+| Non-Smoker     | 20      | 100        | 120   |
+| **Total**      | 70      | 130        | 200   |
+
+### 📊 Expected Frequencies
+
+- Smoker-Disease: (80×70)/200 = 28
+- Smoker-No Disease: (80×130)/200 = 52
+- Non-Smoker-Disease: (120×70)/200 = 42
+- Non-Smoker-No Disease: (120×130)/200 = 78
+
+### 🧮 Chi-Square Calculation
+
+\[
+\chi^2 = rac{(50 - 28)^2}{28} + rac{(30 - 52)^2}{52} + rac{(20 - 42)^2}{42} + rac{(100 - 78)^2}{78} = 44.33
 \]
 
-### 💡 Interpretation:
-Since **44.33 > 3.841**, reject H₀ → strong significant association.
+### 🎯 Interpretation
+
+- df = 1  
+- Critical value @ 0.05 significance = 3.841  
+- **Conclusion:** 44.33 > 3.841 → Reject H₀ → **Strong association exists**
 
 ---
 
-## 📌 Conclusion
-- Use for **2+ categorical variables**
-- Chi-square tells if **relationship is statistically significant**
-- Requires **frequency (count) data**, not percentages
+## ✅ Summary
+
+| Element             | Purpose                                      |
+|---------------------|----------------------------------------------|
+| Test Type           | Non-parametric (Chi-square test of independence) |
+| Data Type           | Categorical only                             |
+| Assumption          | Random sampling, independence of observations |
+| Output              | Chi-square statistic & p-value               |
 
 ---
 
+**The Chi-Square Test helps uncover meaningful relationships in categorical data.**
