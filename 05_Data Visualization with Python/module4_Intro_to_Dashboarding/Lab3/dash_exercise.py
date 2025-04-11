@@ -11,3 +11,11 @@ airline_data =  pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.
                     encoding = "ISO-8859-1",
                     dtype={'Div1Airport': str, 'Div1TailNum': str, 
                             'Div2Airport': str, 'Div2TailNum': str})
+
+app = dash.Dash(__name__)
+app.layout = html.Div(children=[ html.H1('Total number of flights to the destination state split by reporting airline',
+                            style={'textAlign': 'center', 'color': '#503D36', 'font-size': 40}),
+                            html.Div(["Input Year: ", dcc. Input(id='input-year',value='2010',
+                            type='number', style={'height':'50px', 'font-size': 35}),], 
+                            style={'font-size': 40}),html.Br(), html.Br(),
+                            html.Div(dcc.Graph(id='bar-plot')),]) 
