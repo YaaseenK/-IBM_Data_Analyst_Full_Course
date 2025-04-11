@@ -19,3 +19,5 @@ app.layout = html.Div(children=[ html.H1('Total number of flights to the destina
                             type='number', style={'height':'50px', 'font-size': 35}),], 
                             style={'font-size': 40}),html.Br(), html.Br(),
                             html.Div(dcc.Graph(id='bar-plot')),]) 
+@app.callback( Output(component_id='bar-plot',component_property='figure'),
+               Input(component_id='input-year', component_property='value'))
